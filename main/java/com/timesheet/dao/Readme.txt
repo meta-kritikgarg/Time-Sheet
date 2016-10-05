@@ -1,0 +1,1 @@
+DAO is Data Access Object,classes which are communicate to database are present here  :) 

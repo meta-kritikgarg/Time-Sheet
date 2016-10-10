@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.min.js" integrity="sha256-6ftyTu8edTqpdMw/yc0u3xGaDZcWmnXHgK20DTFn5gs=" crossorigin="anonymous"></script>
+    <script  src="js/angular-drag-and-drop-lists.js"></script>
+      <script src="js/main.js"></script>
+      <script src="js/multiselectDropDown.js"></script>
+
+      <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css' rel='stylesheet'>
+      <link href='css/mystyle.css' rel='stylesheet'>
+    <title>Drag and drop</title>
+</head>
+<body ng-app="demo"  class="container">
+
+<li><a ui-sref="home">Home</a></li>
+<li><a ui-sref="multi">List</a></li>
+
+<!-- Ui route sets view here from given templete-->
+<div ui-view></div>
+
+  </body>
+</html>

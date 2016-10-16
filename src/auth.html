@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="559842633250-qamr2c23215vcgjk0hldds4ir0lo6ch1.apps.googleusercontent.com">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blur Admin</title>
-
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
@@ -23,6 +25,7 @@
   <!-- css files will be automatically insert here -->
   <!-- endinject -->
   <!-- endbuild -->
+
 </head>
 <body>
 <main class="auth-main">
@@ -64,5 +67,22 @@
     </div>
   </div>
 </main>
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+<script>
+    function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+    };
+</script>
 </body>
 </html>

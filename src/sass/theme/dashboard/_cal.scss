@@ -1,0 +1,26 @@
+
+.calendar{
+  display:inline-block;
+  padding:10px;
+}
+.header{
+  font-size: 200%;
+}
+
+.my-cal-num{
+height: 20px;
+line-height: 20px;
+width: 20px;
+font-size: 20px;
+}
+
+
+.my-cal-num:hover{
+      border-collapse: collapse;
+background-color: lightblue;
+background-size: 60px 60px;
+
+}
+.my-cal-days{
+  font-size: 15px;
+}

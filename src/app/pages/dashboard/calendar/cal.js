@@ -9,12 +9,12 @@ angular.module("BlurAdmin.pages.dashboard")
             for(; $scope.currentMonthStartDate.get('month')==$scope.month ; ) {
               $scope.mon=$scope.currentMonthStartDate.format("MMMM");
               $scope.year=$scope.currentMonthStartDate.format("YYYY");
-            console.log($scope.currentMonthStartDate.format("D, ddd"));
+          //  console.log($scope.currentMonthStartDate.format("D, ddd"));
             temp = {"date" :$scope.currentMonthStartDate.format("D"),"day" :$scope.currentMonthStartDate.format("dd")};
             $scope.daysObjs.push(temp);
             $scope.currentMonthStartDate.add(1, 'd')
           }
-          console.log($scope.daysObjs);
+          //console.log($scope.daysObjs);
         }
 
         $scope.next=function() {
@@ -31,7 +31,8 @@ angular.module("BlurAdmin.pages.dashboard")
 //dateClick(day)
 
         $scope.dateClick=function(day) {
-          console.log(day );
+        //  console.log(day );
+        
         }
 
 });

@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.dashboard', ['dndLists'])
+  angular.module('BlurAdmin.pages.dashboard', ['dndLists','ngResource'])
       .config(routeConfig);
       console.log("dashboard.js is loaded");
 
@@ -16,6 +16,7 @@
         .state('dashboard', {
           url: '/dashboard',
           templateUrl: 'app/pages/dashboard/dashboard.html',
+          authRequired: true,
           title: 'Dashboard',
           sidebarMeta: {
             icon: 'ion-android-home',

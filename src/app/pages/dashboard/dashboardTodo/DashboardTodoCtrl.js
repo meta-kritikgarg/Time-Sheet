@@ -6,10 +6,21 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.dashboard')
-      .controller('DashboardTodoCtrl', DashboardTodoCtrl);
+      .controller('DashboardTodoCtrl', DashboardTodoCtrl)
+       .factory('TaskService',TaskService);
+
+  // DashboardTodoCtrl.$inject = ['TaskService'];
+  //TaskService.$inject = [$resource];
+
+  function TaskService($resource){
+    console.log("functionq task");
+    return $resource('http://localhost:8080/TimesheetVersion1/timesheet/task/:id');
+  };
+
 
   /** @ngInject */
-  function DashboardTodoCtrl($scope, baConfig) {
+
+  function DashboardTodoCtrl($scope,$http, baConfig,TaskService) {
 
     $scope.transparent = baConfig.theme.blur;
     var dashboardColors = baConfig.colors.dashboard;
@@ -17,9 +28,11 @@
     for (var key in dashboardColors) {
       colors.push(dashboardColors[key]);
     }
+    console.log(colors);
 
     function getRandomColor() {
       var i = Math.floor(Math.random() * (colors.length - 1));
+      //console.log(i);
       return colors[i];
     }
 
@@ -39,6 +52,10 @@
     $scope.todoList.forEach(function(item) {
       item.color = getRandomColor();
     });
+    //
+    var tasks = TaskService.query(function(){
+      console.log(tasks);
+    })
 
     $scope.newTodoText = '';
 
@@ -49,7 +66,10 @@
           color: getRandomColor(),
         });
         $scope.newTodoText = '';
+
       }
     };
   }
+
+
 })();

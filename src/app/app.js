@@ -20,12 +20,18 @@ angular.module('BlurAdmin', [
 console.log("app.js is loaded");
 
 
-function checkAccessOnStateChange($rootScope,$location) {
+function checkAccessOnStateChange($rootScope,$window) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        console.log("works fine");
-        $location.path('../auth.html');
-        //$state.transitionTo('dashboard');
-        event.preventDefault();
+        console.log(toState+angular.isUndefined($rootScope.login));
+        if(toState.authRequired==true && angular.isUndefined($rootScope.login)) {
+          console.log("sign in required");
+        // event.preventDefault();
+        //  $window.open("../auth.html", '_self');
+        }
+
+        // $location.path('../auth.html');
+        // //$state.transitionTo('dashboard');
+        // event.preventDefault();
         //$state.go('dashboard');
 
     });

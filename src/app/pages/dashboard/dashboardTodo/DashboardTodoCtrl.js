@@ -9,7 +9,7 @@
       .controller('DashboardTodoCtrl', DashboardTodoCtrl);
 
   /** @ngInject */
-  function DashboardTodoCtrl($scope, baConfig) {
+  function DashboardTodoCtrl($scope,$http, baConfig) {
 
     $scope.transparent = baConfig.theme.blur;
     var dashboardColors = baConfig.colors.dashboard;
@@ -39,6 +39,19 @@
     $scope.todoList.forEach(function(item) {
       item.color = getRandomColor();
     });
+
+
+    $http({
+      method : "GET",
+      url : "http://localhost:8080/TimesheetVersion1/timesheet/task/getUser/1/2012-01-04"
+      }).then(function mySucces(response) {
+        //$scope.myWelcome = response.data;
+      console.log(response);
+      }, function myError(response) {
+        //$scope.myWelcome = response.statusText;
+        console.log("errojhrcfbjhvfdfghsvfygf");
+      });
+
 
     $scope.newTodoText = '';
 

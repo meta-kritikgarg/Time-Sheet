@@ -62,7 +62,7 @@ angular.module("BlurAdmin.pages.dashboard").controller("multiselectDragDrop", fu
     $scope.$watch('models', function(model) {
 
         $scope.modelAsJson = angular.toJson(model, true);
-        console.log($scope.modelAsJson);
+      //  console.log($scope.modelAsJson);
     }, true);
 
 });

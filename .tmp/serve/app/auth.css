@@ -683,7 +683,7 @@ button.progress-button.btn.btn-danger {
   margin-bottom: 5px;
   color: #666666;
   font-weight: 400;
-  font-size: 13px; }
+  font-size: 15px; }
 
 .form-control {
   color: #666666;
@@ -715,9 +715,6 @@ select.form-control {
 
 textarea.form-control {
   height: 96px; }
-
-.form-inline .form-group input {
-  width: 100%; }
 
 .form-inline .form-group label {
   margin-right: 12px; }

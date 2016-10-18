@@ -20,10 +20,10 @@
           template : '<ui-view></ui-view>',
           abstract: true,
           title: 'Components',
-          sidebarMeta: {
-            icon: 'ion-gear-a',
-            order: 100,
-          },
+          // sidebarMeta: {
+          //   icon: 'ion-gear-a',
+          //   order: 100,
+          // },
         });
   }
 

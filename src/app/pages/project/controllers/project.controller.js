@@ -2,75 +2,43 @@
  'use strict';
     angular.module('BlurAdmin').controller ('ProjectController', ProjectController);
 
-    ProjectController.$inject = ['ProjectService', '$scope', '$filter', 'editableOptions', 'editableThemes'];
+    ProjectController.$inject = ['ProjectService', '$scope', '$filter', 'editableOptions', 'editableThemes','ProjectList'];
 
-    function ProjectController(ProjectService, $scope, $filter, editableOptions, editableThemes) {
+    function ProjectController(ProjectService, $scope, $filter, editableOptions, editableThemes,ProjectList) {
+
+      console.log(ProjectService.getProjects());
+      console.log(ProjectService.get({id:4}));
+      // console.log(ProjectService.get({id:4}));
 
       var ProjectVM = this;
 
-      ProjectVM.users = [
-        {
-          "id": 1,
-          "name": "Esther Vang",
-        "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 2,
-          "name": "Leah Freeman",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 3,
-          "name": "Mathews Simpson",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 4,
-          "name": "Buckley Hopkins",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 5,
-          "name": "Buckley Schwartz",
-        "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 6,
-          "name": "Mathews Hopkins",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 7,
-          "name": "Leah Vang",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 8,
-          "name": "Vang Schwartz",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 9,
-          "name": "Hopkin Esther",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 10,
-          "name": "Mathews Schwartz",
-          "description":"dsfgfwghgdjuwh"
-        }
-      ];
+      ProjectVM.projects =ProjectList;
 
       console.info(ProjectVM.users);
 
-    $scope.addUser = function() {
-      $scope.inserted = {
-          id: ProjectVM.users.length+1,
-          name: '',
-          description: ''
-        };
-        ProjectVM.users.push($scope.inserted);
-      };
+      ProjectVM.addProject = addProject;
+      ProjectVM.createProject = createProject;
+
+      function addProject() {
+        ProjectVM.inserted = {
+            name: '',
+            description: ''
+          };
+          ProjectVM.projects.push(ProjectVM.inserted);
+      }
+
+      function createProject(project) {
+        ProjectService.createProject(project);
+      }
+    //
+    // $scope.addProject = function() {
+    //   $scope.inserted = {
+    //       id: ProjectVM.users.length+1,
+    //       name: '',
+    //       description: ''
+    //     };
+    //     ProjectVM.users.push($scope.inserted);
+    //   };
 
       editableOptions.theme = 'bs3';
       editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';

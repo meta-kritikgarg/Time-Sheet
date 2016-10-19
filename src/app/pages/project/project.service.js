@@ -5,15 +5,19 @@
  ProjectService.$inject = ['$resource'];
 
  function ProjectService ($resource) {
-   var ProjectServiceResource = $resource('http://localhost:8080/timesheet/api/v1/projects/:id/:operation', {
+   var ProjectServiceResource = $resource('http://localhost:8080/TimeSheet/api/v1/projects/:id/:operation', {
      id: '@id',
      operation: '@operation'
    }, {
-       getProject: {
-         method: 'GET'
+       getProjects: {
+         method: 'GET',
+         isArray: true
        },
-       addProject: {
+       createProject: {
          method: 'POST'
+       },
+       updateProject: {
+         method: 'PUT'
        }
 
    });

@@ -1,6 +1,19 @@
-<ul ng-repeat="organization in organizationListVM.organizations">
-<li >{{organization.name}}</li>
-<li >{{organization.address}}</li>
-<li >{{organization.contact}}</li>
-<li>{{organization.description}}</li>
-</ul>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="organization in organizationListVM.organizations">
+        <td>{{organization.name}}</td>
+        <td>{{organization.description}}</td>
+        <td>{{organization.address}}</td>
+        <td>{{organization.contact}}</td>
+      </tr>
+    </tbody>
+  </table>

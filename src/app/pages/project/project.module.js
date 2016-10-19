@@ -16,6 +16,11 @@
             icon: 'ion-compose',
             order: 250,
           },
+          resolve: {
+            ProjectList: ['ProjectService',function(ProjectService){
+              return ProjectService.getProjects();
+            }]
+          }
         })
   }
 })();

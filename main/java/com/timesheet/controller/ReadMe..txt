@@ -1,1 +1,0 @@
-request and responses are handle by controller and uses facade layer 

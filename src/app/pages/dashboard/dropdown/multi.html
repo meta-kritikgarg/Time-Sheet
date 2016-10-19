@@ -1,0 +1,39 @@
+<div class="col-md-12">
+  <h1>Multiselect Drag and Drop enabled Lists</h1>
+</div>
+
+<div class="col-md-6">
+        <div class="multiDemo">
+            <div ng-repeat="list in models">
+                <div>
+                    <div >
+                        <h3>List {{list.listName}}</h3>
+                    </div>
+                    <ul  dnd-list dnd-drop="onDrop(list, item, index)">
+                      <li ng-repeat="item in list.items"
+                          dnd-draggable="getSelectedItemsIncluding(list, item)"
+                          dnd-dragstart="onDragstart(list, event)"
+                          dnd-moved="onMoved(list)"
+                          dnd-dragend="list.dragging = false"
+                          dnd-selected="item.selected = !item.selected"
+                          ng-class="{'selected': item.selected}"
+                          ng-hide="list.dragging && item.selected"
+                          >
+                          {{item.label}}
+                      </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+      </div>
+<!-- <div class="col-md-6">
+
+
+            <div >
+                <h3>Generated Model</h3>
+            </div>
+            <div>
+                <pre  ng-bind="modelAsJson"></pre>
+            </div>
+</div> -->

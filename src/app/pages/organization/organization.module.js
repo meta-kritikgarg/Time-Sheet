@@ -20,10 +20,19 @@
         .state('organization.new', {
           url: '/new',
           templateUrl: 'app/pages/organization/views/new-organization.html',
-          controller: 'OrganizationController',
+          controller: 'OrganizationController as organizationVM',
           title: 'Add organization',
           sidebarMeta: {
             order: 0,
+          },
+        })
+        .state('organization.list', {
+          url: '/list',
+          templateUrl: 'app/pages/organization/views/organizationlist.html',
+          controller: 'OrganizationListController as organizationListVM',
+          title: 'List',
+          sidebarMeta: {
+            order: 1,
           },
         })
   }

@@ -7,10 +7,10 @@
         ng-class="{checked: isChecked, active: activeItem}"
         ng-mouseenter="activeItem=true" ng-mouseleave="activeItem=false">
       <div class="blur-container"><div class="blur-box"></div></div>
-      <i class="mark" style="background-color: {{::item.color}}"></i>
+      <i class="mark" style="background-color: {{item.priority}}"></i>
       <label class="todo-checkbox custom-checkbox custom-input-success">
         <input type="checkbox" ng-model="isChecked">
-        <span class="cut-with-dots">{{ item.text }}</span>
+        <span class="cut-with-dots">{{ item.description }}</span>
       </label>
       <i class="remove-todo ion-ios-close-empty" ng-click="item.deleted = true"></i>
     </li>

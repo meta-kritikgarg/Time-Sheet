@@ -8,9 +8,9 @@
       console.info(OrganizationService.get());
       console.info(OrganizationService.get({id: 5}));
       var organizationData = {
-        name: 'abc', description: 'asdasdasdadasd', addressLine1: 'asdasdasdasd', addressLine2: 'asdasdasda', contactEmail: 'asdasd@asdasd.com'
+        name: 'abc', description: 'asdasdasdadasd', address: 'asdasdasdasd', contactEmail: 'asdasd@asdasd.com'
       };
 
-      console.info(OrganizationService.create(organizationData));
+      console.info(OrganizationService.addOrganization(organizationData));
     }
 })();

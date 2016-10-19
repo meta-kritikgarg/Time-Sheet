@@ -9,10 +9,10 @@
      id: '@id',
      operation: '@operation'
    }, {
-       get: {
+       getOrganization: {
          method: 'GET'
        },
-       create: {
+       addOrganization: {
          method: 'POST'
        }
 

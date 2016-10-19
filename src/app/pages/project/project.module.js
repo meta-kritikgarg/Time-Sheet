@@ -9,20 +9,12 @@
     $stateProvider
         .state('project', {
           url: '/project',
-          template : '<ui-view></ui-view>',
-          abstract: true,
+          templateUrl : 'app/pages/project/views/project-list.html',
+          controller: 'ProjectController as ProjectVM',
           title: 'Project',
           sidebarMeta: {
             icon: 'ion-compose',
             order: 250,
-          },
-        })
-        .state('project.new', {
-          url: '/new',
-          templateUrl: 'app/pages/project/views/new-project.html',
-          title: 'Add Project',
-          sidebarMeta: {
-            order: 0,
           },
         })
   }

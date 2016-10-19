@@ -5,12 +5,18 @@
  TodoService.$inject = ['$resource'];
 
  function TodoService ($resource) {
-   var TodoServiceResource = $resource('http://localhost:8080/timesheet/api/v1/tasks/:id/:operation', {
+
+  //  /api/v1/tasks
+  //  /getUser/{id}
+  //  /getUser/{id}/{date}
+   var TodoServiceResource = $resource('http://localhost:8080/TimeSheet/api/v1/tasks/getUser/:id/:date/:operation', {
      id: '@id',
+     date: '@date',
      operation: '@operation'
    }, {
        getTodo: {
-         method: 'GET'
+         method: 'GET',
+         isArray: true
        },
        addTodo: {
          method: 'POST'

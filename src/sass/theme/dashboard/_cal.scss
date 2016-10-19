@@ -1,17 +1,19 @@
 
 .calendar{
   display:inline-block;
-  padding:10px;
+  padding:7px;
 }
 .header{
-  font-size: 200%;
+
+  font-size: 180%;
+  margin-left: 200px;
 }
 
 .my-cal-num{
-height: 20px;
-line-height: 20px;
+height: 15px;
+line-height: 15px;
 width: 20px;
-font-size: 20px;
+font-size: 18px;
 }
 
 
@@ -22,5 +24,5 @@ background-size: 60px 60px;
 
 }
 .my-cal-days{
-  font-size: 15px;
+  font-size: 14px;
 }

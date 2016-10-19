@@ -21,10 +21,10 @@
           abstract: true,
           template: '<div ui-view></div>',
           title: 'Charts',
-          sidebarMeta: {
-            icon: 'ion-stats-bars',
-            order: 150,
-          },
+          // sidebarMeta: {
+          //   icon: 'ion-stats-bars',
+          //   order: 150,
+          // },
         });
   }
 

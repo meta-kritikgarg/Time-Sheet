@@ -12,6 +12,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
 
+
+
   <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
   <!-- bower:css -->
   <!-- run `gulp inject` to automatically populate bower styles dependencies -->
@@ -24,9 +26,53 @@
   <!-- endinject -->
   <!-- endbuild -->
 </head>
-<body>
+<body ng-controller="AuthController">
+  <link rel="stylesheet" href="app/auth.css" ng-if="!isLoggedIn">
 <div class="body-bg"></div>
-<main ng-if="$pageFinishedLoading" ng-class="{ 'menu-collapsed': $baSidebarService.isMenuCollapsed() }">
+
+<main class="auth-main" ng-if="!isLoggedIn">
+  <div class="auth-block">
+    <h1>Sign in to Blur Admin</h1>
+    <a href="reg.html" class="auth-link">New to Blur Admin? Sign up!</a>
+
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default btn-auth">Sign in</button>
+          <a href class="forgot-pass">Forgot password?</a>
+        </div>
+      </div>
+    </form>
+
+    <div class="auth-sep"><span><span>or Sign in with one click</span></span></div>
+
+    <div class="al-share-auth">
+      <!-- <div class="al-share clearfix g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div> -->
+<ul class="al-share clearfix">
+        <!-- <li><i class="socicon socicon-facebook" title="Share on Facebook"></i></li>
+        <li><i class="socicon socicon-twitter" title="Share on Twitter"></i></li> -->
+        <a href="http://localhost:8080/TimesheetVersion1/user/login"><li><i class="socicon socicon-google"  title="Share on Google Plus"></i></li></a>
+      </ul>
+    </div>
+
+  </div>
+</main>
+
+<main ng-if="$pageFinishedLoading && isLoggedIn" ng-class="{ 'menu-collapsed': $baSidebarService.isMenuCollapsed() }">
 
   <ba-sidebar></ba-sidebar>
   <page-top></page-top>
@@ -41,7 +87,13 @@
   <footer class="al-footer clearfix">
     <div class="al-footer-right">Created with <i class="ion-heart"></i></div>
     <div class="al-footer-main clearfix">
-      
+      <div class="al-copy">Blur Admin 2016</div>
+      <ul class="al-share clearfix">
+        <li><i class="socicon socicon-facebook"></i></li>
+        <li><i class="socicon socicon-twitter"></i></li>
+        <li><i class="socicon socicon-google"></i></li>
+        <li><i class="socicon socicon-github"></i></li>
+      </ul>
     </div>
   </footer>
 
@@ -51,6 +103,17 @@
 <div id="preloader" ng-show="!$pageFinishedLoading">
   <div></div>
 </div>
+
+
+<ul class="al-share clearfix">
+        <!-- <li><i class="socicon socicon-facebook" title="Share on Facebook"></i></li>
+        <li><i class="socicon socicon-twitter" title="Share on Twitter"></i></li> -->
+        <a href="http://localhost:8080/TimesheetVersion1/user/login"><li><i class="socicon socicon-google"  title="Share on Google Plus"></i></li></a>
+      </ul>
+    </div>
+
+  </div>
+
 
 <!-- build:js(src) scripts/vendor.js -->
 <!-- bower:js -->

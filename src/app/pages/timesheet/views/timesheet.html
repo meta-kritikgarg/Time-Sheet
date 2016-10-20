@@ -1,0 +1,19 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="organization in organizationListVM.organizations">
+        <td>{{organization.name}}</td>
+        <td>{{organization.description}}</td>
+        <td>{{organization.address}}</td>
+        <td>{{organization.contact}}</td>
+      </tr>
+    </tbody>
+  </table>

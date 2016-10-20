@@ -9,6 +9,7 @@
     'ui.router',
 
     'BlurAdmin.pages.dashboard',
+    'BlurAdmin.pages.auth',
     'BlurAdmin.pages.ui',
     'BlurAdmin.pages.components',
     'BlurAdmin.pages.form',
@@ -18,9 +19,11 @@
     'BlurAdmin.pages.profile',
     'BlurAdmin.pages.project',
     'BlurAdmin.pages.organization',
+    'BlurAdmin.pages.timesheet',
   ])
       .config(routeConfig);
 
+routeConfig.$inject = ['$urlRouterProvider', 'baSidebarServiceProvider'];
   /** @ngInject */
   function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
     $urlRouterProvider.otherwise('/dashboard');

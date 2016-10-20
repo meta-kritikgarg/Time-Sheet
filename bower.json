@@ -54,6 +54,7 @@
     "textAngular": "~1.4.6",
     "angular-xeditable": "~0.1.9",
     "ng-js-tree": "~0.0.7",
+    "angular-webstorage": "~0.9",
     "angular-cookies": "~1.5.9"
   },
   "resolutions": {

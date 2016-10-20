@@ -17,22 +17,13 @@
             order: 250,
           },
         })
-        .state('organization.new', {
-          url: '/new',
+        .state('timesheet.my', {
+          url: '/my',
           templateUrl: 'app/pages/timesheet/views/timesheet.html',
           controller: 'TimeSheetController as timesheetVM',
-          title: 'View Timesheet',
+          title: 'My Timesheet',
           sidebarMeta: {
             order: 0,
-          },
-        })
-        .state('organization.list', {
-          url: '/list',
-          templateUrl: 'app/pages/organization/views/organizationlist.html',
-          controller: 'OrganizationListController as organizationListVM',
-          title: 'List',
-          sidebarMeta: {
-            order: 1,
           },
         })
   }

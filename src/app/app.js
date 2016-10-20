@@ -12,13 +12,26 @@ angular.module('BlurAdmin', [
   'ui.slimscroll',
   'ngJsTree',
   'angular-progress-button-styles',
-  
+
 
   'BlurAdmin.theme',
   'BlurAdmin.pages'
-]).run();
+]).config(routeConfig).run();
 
 console.log("app.js is loaded");
+
+
+/** @ngInject */
+function routeConfig($stateProvider) {
+  $stateProvider
+      .state('auth', {
+        url: '/auth',
+        controller: 'AuthController',
+        template: 'app/pages/dashboard/dashboard.html',
+        // authRequired: true,
+        // title: 'Dashboard',
+      });
+}
 
 
 function checkAccessOnStateChange($rootScope,$window) {

@@ -19,10 +19,10 @@
         return AuthServiceResource;
       }
 
-AuthController.$inject=['$scope', '$stateParams','$state','AuthService', 'StorageService'];
-function AuthController($scope, $stateParams,$state,AuthService, StorageService){
+AuthController.$inject=['$scope', '$stateParams','$state','AuthService', 'StorageService','$location'];
+function AuthController($scope, $stateParams,$state,AuthService, StorageService,$location){
 
-  $scope.isLoggedIn = true;
+  $scope.isLoggedIn = false;
 
   function getQueryStringValue (key) {
     return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
@@ -40,10 +40,16 @@ function AuthController($scope, $stateParams,$state,AuthService, StorageService)
       isTokenValid(token);
       // Validate Token
       // if successfull, go to dashboard
-      if (true) {
-        // $state.go('dashboard');
+      if (false) {
+        console.log("going to dashboard");
+         $state.go('dashboard');
+         $scope.isLoggedIn = true;
       }else {
-
+          console.log("going to index");
+          $scope.isLoggedIn = false;
+          StorageService.clearAll();
+          window.location.href='http://localhost:3000/index.html';
+          //$location.url('http://localhost:3000/index.html');
       }
     //  $state.go("/dashboard");
       // else redirect to index page, after removing the token in query.

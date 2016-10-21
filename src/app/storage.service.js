@@ -25,6 +25,10 @@
       return localStorage.getItem("token");
     }
 
+    function clearAll() {
+      localStorage.clear();
+    }
+
     return StorageService;
 
   }

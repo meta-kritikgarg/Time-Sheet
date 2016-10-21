@@ -10,12 +10,20 @@
     StorageService.setUserData = setUserData;
     StorageService.getUserData = getUserData;
     StorageService.getToken = getToken;
+    StorageService.isUserLoggedIn = isUserLoggedIn;
+    StorageService.clearAll = clearAll;
+
 
     function setToken(token) {
       localStorage.setItem("token", token);
     }
     function setUserData(user_info) {
       localStorage.setItem("user_info", user_info);
+    }
+
+
+    function clearAll() {
+      localStorage.clear();
     }
 
     function getUserData() {
@@ -25,8 +33,13 @@
       return localStorage.getItem("token");
     }
 
-    function clearAll() {
-      localStorage.clear();
+    function isUserLoggedIn() {
+      console.log(localStorage.getItem("token")===null);
+      if(!localStorage.getItem("token")===null){
+        return true;
+      } else {
+        return false;
+      }
     }
 
     return StorageService;

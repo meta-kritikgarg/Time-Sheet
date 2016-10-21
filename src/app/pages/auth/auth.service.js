@@ -7,9 +7,7 @@
       AuthService.$inject = ['$resource'];
 
       function AuthService ($resource) {
-        var AuthServiceResource = $resource('http://localhost:8080/TimeSheet/validate/:token',{
-          token: '@token'
-        }, {
+        var AuthServiceResource = $resource('http://localhost:8080/TimeSheet/validate',{  }, {
             validateToken: {
               method: 'POST',
               isArray: false

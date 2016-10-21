@@ -14,6 +14,10 @@
         .state('auth1',{
           url: '/auth?data',
           controller: 'AuthController'
+        })
+        .state('signout',{
+          url: '/signout',
+          controller:'SignoutController'
         });
   }
 

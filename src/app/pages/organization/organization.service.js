@@ -2,10 +2,10 @@
  'use strict';
  angular.module('BlurAdmin').factory ('OrganizationService', OrganizationService);
 
- OrganizationService.$inject = ['$resource'];
+ OrganizationService.$inject = ['$resource', 'CommonConstant'];
 
- function OrganizationService ($resource) {
-   var OrganizationServiceResource = $resource('http://localhost:8080/TimeSheet/api/v1/organizations/:id/:operation', {
+ function OrganizationService ($resource, CommonConstant) {
+   var OrganizationServiceResource = $resource(CommonConstant.baseUrl+":"+CommonConstant.port+'/api/v1/organizations/:id/:operation', {
      id: '@id',
      operation: '@operation'
    }, {

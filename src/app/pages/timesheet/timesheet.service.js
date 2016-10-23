@@ -2,11 +2,11 @@
  'use strict';
  angular.module('BlurAdmin').factory ('TimeSheetService', TimeSheetService);
 
- TimeSheetService.$inject = ['$resource'];
+ TimeSheetService.$inject = ['$resource', 'CommonConstant'];
 
- function TimeSheetService ($resource) {
+ function TimeSheetService ($resource, CommonConstant) {
    //ToDo:
-   var TimeSheetServiceResource = $resource('http://localhost:8080/TimeSheet/api/v1/TimeSheets/:id/:operation', {
+   var TimeSheetServiceResource = $resource(CommonConstant.baseUrl+":"+CommonConstant.port+'/api/v1/TimeSheets/:id/:operation', {
      id: '@id',
      operation: '@operation'
    }, {

@@ -18,6 +18,8 @@ angular.module('BlurAdmin', [
   'BlurAdmin.pages'
 ]).config(routeConfig).run();
 
+routeConfig.$inject = ['$stateProvider'];
+
 console.log("app.js is loaded");
 
 
@@ -27,10 +29,12 @@ function routeConfig($stateProvider) {
       .state('auth', {
         url: '/auth',
         controller: 'AuthController',
-        template: 'app/pages/dashboard/dashboard.html',
+        // template: 'app/pages/dashboard/dashboard.html',
         // authRequired: true,
         // title: 'Dashboard',
       });
+
+      // $httpProvider.interceptors.push('Interceptor');
 }
 
 
@@ -49,5 +53,7 @@ function checkAccessOnStateChange($rootScope,$window) {
         //$state.go('dashboard');
 
     });
+
+
 
  }

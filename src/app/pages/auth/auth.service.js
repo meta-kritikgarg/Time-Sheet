@@ -4,10 +4,10 @@
   angular.module('BlurAdmin.pages.auth')
       .factory ('AuthService', AuthService);
 
-      AuthService.$inject = ['$resource'];
+      AuthService.$inject = ['$resource', 'CommonConstant'];
 
-      function AuthService ($resource) {
-        var AuthServiceResource = $resource('http://localhost:8080/TimeSheet/validate',{  }, {
+      function AuthService ($resource, CommonConstant) {
+        var AuthServiceResource = $resource(CommonConstant.baseUrl+":"+CommonConstant.port+'/validate',{  }, {
             validateToken: {
               method: 'POST',
               isArray: false

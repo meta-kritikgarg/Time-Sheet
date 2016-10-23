@@ -2,14 +2,14 @@
 //  'use strict';
 //  angular.module('BlurAdmin').factory ('TodoService', TodoService);
 //
-//  TodoService.$inject = ['$resource'];
+//  TodoService.$inject = ['$resource', 'CommonConstant'];
 //
-//  function TodoService ($resource) {
+//  function TodoService ($resource, CommonConstant) {
 //
 //   //  /api/v1/tasks
 //   //  /getUser/{id}
 //   //  /getUser/{id}/{date}
-//    var TodoServiceResource = $resource('http://localhost:8080/TimeSheet/api/v1/tasks/getUser/:id/:date/:operation', {
+//    var TodoServiceResource = $resource(CommonConstant.baseUrl+":"+CommonConstant.port+'/api/v1/tasks/getUser/:id/:date/:operation', {
 //      id: '@id',
 //      date: '@date',
 //      operation: '@operation'

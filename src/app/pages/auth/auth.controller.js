@@ -4,9 +4,9 @@
   angular.module('BlurAdmin.pages.auth')
       .controller('AuthController', AuthController);
 
-AuthController.$inject=['$scope', '$stateParams','$state','AuthService', 'StorageService','$location'];
+AuthController.$inject=['$scope', '$stateParams','$state','AuthService', 'StorageService','$location','CommonConstant'];
 
-function AuthController($scope, $stateParams,$state,AuthService, StorageService,$location){
+function AuthController($scope, $stateParams,$state,AuthService, StorageService,$location,CommonConstant){
 
   function getQueryStringValue (key) {
     return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
@@ -23,7 +23,7 @@ function AuthController($scope, $stateParams,$state,AuthService, StorageService,
 // Would write the value of the QueryString-variable called name to the console
     // console.log(token);
     //Todo : remove true
-    $scope.isLoggedIn = StorageService.isUserLoggedIn() || true;
+    $scope.isLoggedIn = StorageService.isUserLoggedIn();
     if (token != null && token != undefined && token != '') {
 
       //console.log(isTokenValid(token));

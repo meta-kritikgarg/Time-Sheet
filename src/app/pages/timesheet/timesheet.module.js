@@ -20,7 +20,7 @@
         .state('timesheet.my', {
           url: '/my',
           templateUrl: 'app/pages/timesheet/views/timesheet.html',
-          controller: 'TimeSheetController as timesheetVM',
+          controller: 'TimeSheetController',
           title: 'My Timesheet',
           sidebarMeta: {
             order: 0,

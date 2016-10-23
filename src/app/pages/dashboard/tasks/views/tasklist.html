@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-12">
-    <div ba-panel ba-panel-title="Editable Rows" ba-panel-class="with-scroll">
+    <div ba-panel ba-panel-title="Tasks" ba-panel-class="with-scroll">
 
 
       <div class="add-row-editable-table">
-        <button class="btn btn-primary" ng-click="addUser()">Add row</button>
+        <button class="btn btn-primary" ng-click="addUser()">Add Task</button>
       </div>
       <table class="table table-bordered table-hover table-condensed">
         <tr>
@@ -12,26 +12,24 @@
           <td>Description</td>
           <td>Repeate Frequency</td>
           <td>Duration</td>
-          <!-- <td>Actions</td> -->
+           <td>Actions</td>
         </tr>
         <tr ng-repeat="user in TaskListVM.users" class="editable-row">
           <td>
               {{$index+1}}
           </td>
           <td>
-              <span editable-text="user.name" e-name="name" e-form="rowform" e-required>
+              <span  editable-text="user.name" e-name="name" e-form="rowform" e-required>
                 {{ user.name || 'empty' }}
               </span>
           </td>
-          <td class="select-td">
-              <span editable-select="user.status" e-name="status" e-form="rowform" e-selectpicker
-                    e-ng-options="s.value as s.text for s in statuses">
+          <td>
+              <span>
                 {{ showStatus(user) }}
               </span>
           </td>
-          <td class="select-td">
-              <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-selectpicker
-                    e-ng-options="g.id as g.text for g in groups">
+          <td>
+              <span editable-text="user.duration" e-name="group"  e-form="rowform" >
                 {{ showGroup(user) }}
               </span>
           </td>

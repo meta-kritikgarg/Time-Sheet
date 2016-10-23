@@ -6,7 +6,7 @@
 
     function TaskListController(ProjectService, $scope, $filter, editableOptions, editableThemes) {
 
-      var TaskListVM = this;
+        var TaskListVM = this;
 
       TaskListVM.users = [
         {

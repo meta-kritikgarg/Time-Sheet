@@ -22,7 +22,8 @@ function AuthController($scope, $stateParams,$state,AuthService, StorageService,
 
 // Would write the value of the QueryString-variable called name to the console
     // console.log(token);
-    $scope.isLoggedIn = StorageService.isUserLoggedIn();
+    //Todo : remove true
+    $scope.isLoggedIn = StorageService.isUserLoggedIn() || true;
     if (token != null && token != undefined && token != '') {
 
       //console.log(isTokenValid(token));

@@ -1,19 +1,36 @@
 
-<table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Address</th>
-        <th>Contact</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="organization in organizationListVM.organizations">
-        <td>{{organization.name}}</td>
-        <td>{{organization.description}}</td>
-        <td>{{organization.address}}</td>
-        <td>{{organization.contact}}</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+<div class="row">
+    <div class="col-lg-8 col-md-12 col-sm-12">
+        <div ba-panel ba-panel-title="Tasks" ba-panel-class="xmedium-panel ">
+            <div include-with-scope="app/pages/timesheet/views/timesheettable.html"></div>
+        </div>
+
+        <!--<table class="table">
+            <thead>
+            <tr>
+                <th>Sr. No.</th>
+                <th>Date</th>
+                <th>Task</th>
+                <th>Duration</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="timesheet in timesheetListVM.timesheets">
+                <td>{{timesheet.no}}</td>
+                <td>{{timesheet.date}}</td>
+                <td>{{timesheet.task}}</td>
+                <td>{{timesheet.duration}}</td>
+            </tr>
+            </tbody>
+        </table>-->
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12"
+         ba-panel
+         ba-panel-title="Chart View"
+         ba-panel-class="xmedium-panel">
+        <div ng-include="'app/pages/timesheet/views/timesheetchart.html'"></div>
+    </div>
+</div>

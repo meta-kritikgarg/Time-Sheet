@@ -5,10 +5,10 @@
 <button type="button" ng-click="next()" class="btn btn-primary btn pull-right custom col-lg-1 col-xs-10">Next</button>
 </div>
 
-</br>
-<div ng-repeat="day in daysObjs" class="calendar">
-<div class="my-cal-days">{{day.day}}</div>
-<div class=" my-cal-num" ng-click="dateClick(day)">{{day.date}}</div>
-  </div>
-
+    <center>
+<div ng-repeat="day in daysObjs" class="calendar center">
+    <div class="btn-icon my-cal-days">{{day.day}} </div>
+    <div class="btn-icon my-cal-num" ng-class="{selected: day.isSelected}" ng-click="dateClick(day)">{{day.date}}</div>
+</div>
+    </center>
 </div>

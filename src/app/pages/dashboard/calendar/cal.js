@@ -6,11 +6,21 @@ angular.module("BlurAdmin.pages.dashboard")
         function daysPrint($scope){
               $scope.month = $scope.currentMonthStartDate.get('month');
               $scope.daysObjs=[];
+            var isSelected = false;
+            console.log(isSelected);
+
+
             for(; $scope.currentMonthStartDate.get('month')==$scope.month ; ) {
+                var tmp = $scope.currentMonthStartDate;
+                if(tmp.get('date')==moment().get('date')&&tmp.get('month')==moment().get('month')){
+                    isSelected=true;
+                } else {
+                    isSelected = false;
+                }
               $scope.mon=$scope.currentMonthStartDate.format("MMMM");
               $scope.year=$scope.currentMonthStartDate.format("YYYY");
           //  console.log($scope.currentMonthStartDate.format("D, ddd"));
-            temp = {"date" :$scope.currentMonthStartDate.format("D"),"day" :$scope.currentMonthStartDate.format("dd")};
+            temp = {"date" :$scope.currentMonthStartDate.format("D"),"day" :$scope.currentMonthStartDate.format("dd"),"isSelected":isSelected}
             $scope.daysObjs.push(temp);
             $scope.currentMonthStartDate.add(1, 'd')
           }
@@ -31,7 +41,12 @@ angular.module("BlurAdmin.pages.dashboard")
 //dateClick(day)
 
         $scope.dateClick=function(day) {
-        //  console.log(day );
+          console.log(day );
+            for(var i=0;i< $scope.daysObjs.length;i++){
+                $scope.daysObjs[i].isSelected=false;
+            }
+            day.isSelected=true;
+
         
         }
 

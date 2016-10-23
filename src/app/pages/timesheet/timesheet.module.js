@@ -13,7 +13,7 @@
           abstract: true,
           title: 'TimeSheet',
           sidebarMeta: {
-            icon: 'ion-compose',
+            icon: 'ion-clock',
             order: 250,
           },
         })

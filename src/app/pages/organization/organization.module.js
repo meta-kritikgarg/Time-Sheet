@@ -13,7 +13,7 @@
           abstract: true,
           title: 'Organization',
           sidebarMeta: {
-            icon: 'ion-compose',
+            icon: 'fa fa-building-o',
             order: 250,
           },
         })

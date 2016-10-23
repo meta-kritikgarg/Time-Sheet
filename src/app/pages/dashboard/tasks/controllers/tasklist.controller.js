@@ -8,42 +8,64 @@
 
         var TaskListVM = this;
 
-      TaskListVM.users = [
-        {
-          "id": 1,
-          "name": "Esther Vang",
-        "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 2,
-          "name": "Leah Freeman",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 3,
-          "name": "Mathews Simpson",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 4,
-          "name": "Buckley Hopkins",
-          "description":"dsfgfwghgdjuwh"
-        }
+      TaskListVM.tasks = [
+          {
+              "id": 5,
+              "description": "meeting with mentor",
+              "createdBy": 5,
+              "createdDate": 1476037800000,
+              "subTask": null,
+              "repeatFrequency": 365,
+              "status": 0,
+              "priority": 2
+          },
+
+          {
+              "id": 6,
+              "description": "assignmrnt",
+              "createdBy": 5,
+              "createdDate": 1476037800000,
+              "subTask": null,
+              "repeatFrequency": 365,
+              "status": 1,
+              "priority": 2
+          }
+
        ];
+
+        $scope.showStatus = showStatus;
+
+        $scope.statuses = [
+            {value: 0, text: 'Due'},
+            {value: 1, text: 'Done'},
+            {value: 2, text: 'Postpone'},
+        ];
 
       $scope.addUser = function() {
       $scope.inserted = {
-          id: TaskListVM.users.length+1,
+          id: TaskListVM.tasks.length+1,
           name: '',
-          description: ''
+          description: '',
+          subTask: null,
+          repeatFrequency: 0,
+          status : 0,
+          priority: 2
         };
-        TaskListVM.users.push($scope.inserted);
+        TaskListVM.tasks.push($scope.inserted);
       };
 
       editableOptions.theme = 'bs3';
       editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
       editableThemes['bs3'].cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
 
+        function  showStatus(task) {
+            var selected = [];
+            if(task.status) {
+                selected = $filter('filter')($scope.statuses, {value: task.status});
+            }
+            //console.log(selected);
+            return selected.length ? selected[0].text : 'Due';
+        };
 
     }
 })();

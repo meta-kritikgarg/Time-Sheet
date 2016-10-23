@@ -11,31 +11,34 @@
           <td>Sr No</td>
           <td>Description</td>
           <td>Repeate Frequency</td>
-          <td>Duration</td>
+          <td>Status</td>
            <td>Actions</td>
         </tr>
-        <tr ng-repeat="user in TaskListVM.users" class="editable-row">
+        <tr ng-repeat="task in TaskListVM.tasks" class="editable-row">
           <td>
               {{$index+1}}
           </td>
           <td>
-              <span  editable-text="user.name" e-name="name" e-form="rowform" e-required>
-                {{ user.name || 'empty' }}
+              <span  editable-text="task.description" e-name="name" e-form="rowform" e-required>
+                {{ task.description || 'empty' }}
               </span>
           </td>
           <td>
               <span>
-                {{ showStatus(user) }}
+                {{ task.repeatFrequency }}
               </span>
           </td>
-          <td>
-              <span editable-text="user.duration" e-name="group"  e-form="rowform" >
-                {{ showGroup(user) }}
+
+          <td class="select-td">
+              <span editable-select="task.status" e-name="status" e-form="rowform" e-selectpicker
+                    e-ng-options="s.value as s.text for s in statuses">
+               <b> {{ showStatus(task) }}</b>
               </span>
           </td>
+
           <td>
             <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
-                  shown="inserted == user">
+                  shown="inserted == task">
               <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
                 Save
               </button>

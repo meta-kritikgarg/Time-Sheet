@@ -28,42 +28,10 @@
           "id": 4,
           "name": "Buckley Hopkins",
           "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 5,
-          "name": "Buckley Schwartz",
-        "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 6,
-          "name": "Mathews Hopkins",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 7,
-          "name": "Leah Vang",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 8,
-          "name": "Vang Schwartz",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 9,
-          "name": "Hopkin Esther",
-          "description":"dsfgfwghgdjuwh"
-        },
-        {
-          "id": 10,
-          "name": "Mathews Schwartz",
-          "description":"dsfgfwghgdjuwh"
         }
-      ];
+       ];
 
-      console.info(TaskListVM.users);
-
-    $scope.addUser = function() {
+      $scope.addUser = function() {
       $scope.inserted = {
           id: TaskListVM.users.length+1,
           name: '',

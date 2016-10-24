@@ -20,6 +20,12 @@
         .state('timesheet.my', {
           url: '/my',
           templateUrl: 'app/pages/timesheet/views/timesheet.html',
+          resolve: {
+            TimeSheetData: function(TimeSheetService) {
+              console.info("Hello World");
+              return TimeSheetService.getTimeSheet();
+            }
+          },
           controller: 'TimeSheetController',
           title: 'My Timesheet',
           sidebarMeta: {

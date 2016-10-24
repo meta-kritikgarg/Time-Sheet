@@ -9,14 +9,17 @@
   //  /api/v1/tasks
   //  /getUser/{id}
   //  /getUser/{id}/{date}
-   var TaskServiceResource = $resource(CommonConstant.baseUrl+":"+CommonConstant.port+'/api/v1/tasks/getUser/:id/:date/:operation', {
+   var TaskServiceResource = $resource(CommonConstant.baseUrl+":"+CommonConstant.port+'/api/v1/tasks/:operation/:id/:date', {
      id: '@id',
      date: '@date',
      operation: '@operation'
    }, {
-       getTodo: {
+       getTasks: {
          method: 'GET',
-         isArray: true
+         isArray: true,
+           params: {
+               operation: 'me'
+           }
        },
        addTodo: {
          method: 'POST'

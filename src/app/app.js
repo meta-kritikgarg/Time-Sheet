@@ -16,11 +16,17 @@ angular.module('BlurAdmin', [
 
   'BlurAdmin.theme',
   'BlurAdmin.pages'
-]).config(routeConfig).run();
+]).config(routeConfig).run(defaultHeaders);
 
 routeConfig.$inject = ['$stateProvider'];
+defaultHeaders.$inject = ['StorageService', '$http']
+
 
 console.log("app.js is loaded");
+
+function defaultHeaders(StorageService, $http) {
+  $http.defaults.headers.common.token = StorageService.getToken();
+}
 
 
 /** @ngInject */

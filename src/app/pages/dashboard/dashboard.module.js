@@ -16,6 +16,9 @@
         .state('dashboard', {
           url: '/dashboard',
           templateUrl: 'app/pages/dashboard/dashboard.html',
+          controller: function ($scope) {
+            $scope.taskList = [];
+          },
           authRequired: true,
           title: 'Dashboard',
           sidebarMeta: {

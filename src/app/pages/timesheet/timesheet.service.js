@@ -6,19 +6,16 @@
 
  function TimeSheetService ($resource, CommonConstant) {
    //ToDo:
-   var TimeSheetServiceResource = $resource(CommonConstant.baseUrl+":"+CommonConstant.port+'/api/v1/TimeSheets/:id/:operation', {
+   var TimeSheetServiceResource = $resource(CommonConstant.baseUrl+":"+CommonConstant.port+'/api/v1/timesheets/:id/:operation', {
      id: '@id',
      operation: '@operation'
    }, {
-       getTimeSheets: {
+       getTimeSheet: {
          method: 'GET',
          isArray: true,
          params: {
-           operation: 'list'
+           operation: 'me'
          }
-       },
-       addTimeSheet: {
-         method: 'POST'
        }
 
    });

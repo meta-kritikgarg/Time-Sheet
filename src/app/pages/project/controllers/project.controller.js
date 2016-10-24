@@ -7,14 +7,14 @@
     function ProjectController(ProjectService, $scope, $filter, editableOptions, editableThemes,ProjectList) {
 
       console.log(ProjectService.getProjects());
-      console.log(ProjectService.get({id:4}));
+      //console.log(ProjectService.get({id:4}));
       // console.log(ProjectService.get({id:4}));
 
       var ProjectVM = this;
 
-      ProjectVM.projects =ProjectList;
+      ProjectVM.projects =ProjectService.getProjects();
 
-      console.info(ProjectVM.users);
+      //console.info(ProjectVM.users);
 
       ProjectVM.addProject = addProject;
       ProjectVM.createProject = createProject;

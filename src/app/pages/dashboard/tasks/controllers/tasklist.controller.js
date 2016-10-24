@@ -2,36 +2,24 @@
  'use strict';
     angular.module('BlurAdmin').controller ('TaskListController', TaskListController);
 
-    TaskListController.$inject = ['ProjectService', '$scope', '$filter', 'editableOptions', 'editableThemes'];
+    TaskListController.$inject = ['ProjectService', '$scope', '$filter', 'editableOptions', 'editableThemes', 'TaskService'];
 
-    function TaskListController(ProjectService, $scope, $filter, editableOptions, editableThemes) {
+    function TaskListController(ProjectService, $scope, $filter, editableOptions, editableThemes, TaskService) {
 
         var TaskListVM = this;
 
-      TaskListVM.tasks = [
-          {
-              "id": 5,
-              "description": "meeting with mentor",
-              "createdBy": 5,
-              "createdDate": 1476037800000,
-              "subTask": null,
-              "repeatFrequency": 365,
-              "status": 0,
-              "priority": 2
-          },
+        TaskListVM.saveTask = saveTask;
 
-          {
-              "id": 6,
-              "description": "assignmrnt",
-              "createdBy": 5,
-              "createdDate": 1476037800000,
-              "subTask": null,
-              "repeatFrequency": 365,
-              "status": 1,
-              "priority": 2
-          }
+        var d = moment();
+        d.hours(0);d.minutes(0);
+        d.set({'hours':0, 'minutes':0, 'seconds':0, 'millisecond':0});
 
-       ];
+        TaskService.getTasks({date: d.valueOf()}, function(resp){
+          console.info(resp);
+          $scope.taskList = resp;
+        }, function(badResp) {
+          console.info(badResp);
+        });
 
         $scope.showStatus = showStatus;
 
@@ -41,9 +29,9 @@
             {value: 2, text: 'Postpone'},
         ];
 
-      $scope.addUser = function() {
+      $scope.addTask = function() {
       $scope.inserted = {
-          id: TaskListVM.tasks.length+1,
+          id: $scope.taskList.length+1,
           name: '',
           description: '',
           subTask: null,
@@ -51,8 +39,14 @@
           status : 0,
           priority: 2
         };
-        TaskListVM.tasks.push($scope.inserted);
+        $scope.taskList.push($scope.inserted);
       };
+
+
+      function saveTask(task) {
+        console.info(task);
+        TaskService.addTodo({task});
+      }
 
       editableOptions.theme = 'bs3';
       editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';

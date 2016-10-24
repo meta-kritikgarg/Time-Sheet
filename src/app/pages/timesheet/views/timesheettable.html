@@ -2,38 +2,72 @@
   <div class="form-group select-page-size-wrap ">
 
   </div>
+
   <table class="table" st-table="timesheetdata">
+    <thead>
+    <tr>
+      <th style="font-weight:bold">#</th>
+      <th style="font-weight:bold">Date</th>
+      <th style="font-weight:bold">Description</th>
+      <th style="font-weight:bold">Status</th>
+      <th style="font-weight:bold">Duration (hrs)</th>
+    </tr>
+    <!-- <tr>
+      <th>#</th>
+      <th><input st-search="date" placeholder="Search Date" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="description" placeholder="Search Description" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="status" placeholder="Search Status" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="duration" placeholder="Search Duration" class="input-sm form-control search-input"
+                 type="search"/></th>
+    </tr> -->
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in timesheetdata">
+      <td>{{$index + 1}}</td>
+      <td>{{item.data.taskDurationModel[0].date}}</td>
+      <td>{{item.data.description}}</td>
+      <td>{{item.data.status ? "Done" : "Due"}}</td>
+      <td>{{item.data.taskDurationModel[0].duration}}</td>
+
+    </tr>
+    </tbody>
+  </table>
+
+
+
+
+  <!-- <table class="table" st-table="timesheetdata">
     <thead>
     <tr class="sortable ">
       <th class="table-id" st-sort="id" st-sort-default="true">#</th>
-      <th st-sort="firstName">First Name</th>
-      <th st-sort="lastName">Last Name</th>
-      <th st-sort="username">Username</th>
-      <th st-sort="email">Email</th>
-      <th st-sort="age">Age</th>
+      <th st-sort="date">Date</th>
+      <th st-sort="description">Description</th>
+      <th st-sort="status">Status</th>
+      <th st-sort="duration">Duration</th>
     </tr>
     <tr>
       <th></th>
-      <th><input st-search="firstName" placeholder="Search First Name" class="input-sm form-control search-input"
+      <th><input st-search="date" placeholder="Search Date" class="input-sm form-control search-input"
                  type="search"/></th>
-      <th><input st-search="lastName" placeholder="Search Last Name" class="input-sm form-control search-input"
+      <th><input st-search="description" placeholder="Search Description" class="input-sm form-control search-input"
                  type="search"/></th>
-      <th><input st-search="username" placeholder="Search Username" class="input-sm form-control search-input"
+      <th><input st-search="status" placeholder="Search Status" class="input-sm form-control search-input"
                  type="search"/></th>
-      <th><input st-search="email" placeholder="Search Email" class="input-sm form-control search-input" type="search"/>
-      </th>
-      <th><input st-search="age" placeholder="Search Age" class="input-sm form-control search-input" type="search"/>
-      </th>
+      <th><input st-search="duration" placeholder="Search Duration" class="input-sm form-control search-input"
+                 type="search"/></th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="item in timesheetdata">
       <td class="table-id">{{item.id}}</td>
-      <td>{{item.firstName}}</td>
-      <td>{{item.lastName}}</td>
-      <td>{{item.username}}</td>
-      <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
-      <td>{{item.age}}</td>
+      <td>{{item.taskDurationModel[0].date}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.status}}</td>
+      <td>{{item.duration}}</td>
+
     </tr>
     </tbody>
     <tfoot>
@@ -43,5 +77,5 @@
       </td>
     </tr>
     </tfoot>
-  </table>
+  </table> -->
 </div>

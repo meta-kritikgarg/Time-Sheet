@@ -13,6 +13,7 @@ function SignoutController($scope, $stateParams,$state, StorageService,$location
     StorageService.clearAll();
     console.log("signout is called");
     $state.go('auth1');
+    location.reload();
   }
 
 }

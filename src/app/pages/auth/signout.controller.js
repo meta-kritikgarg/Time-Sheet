@@ -12,8 +12,8 @@ function SignoutController($scope, $stateParams,$state, StorageService,$location
   function signout(){
     StorageService.clearAll();
     console.log("signout is called");
-    $state.go('auth1');
-    location.reload();
+    // $state.go('auth');
+    window.reload();
   }
 
 }

@@ -10,7 +10,7 @@
         <tr>
           <td>Sr No</td>
           <td>Description</td>
-          <td>Repeate Frequency</td>
+          <td>Duration</td>
           <td>Status</td>
            <td>Actions</td>
         </tr>
@@ -19,14 +19,14 @@
               {{$index+1}}
           </td>
           <td>
-              <span  editable-text="task.description" e-name="name" e-form="rowform" e-required>
+              <span  editable-text="task.description" e-name="description" e-form="rowform" e-required>
                 {{ task.description || 'empty' }}
               </span>
           </td>
           <td>
-              <span>
-                {{ task.repeatFrequency }}
-              </span>
+            <span  editable-text="task.duration" e-name="duration" e-form="rowform" e-required>
+              {{ task.duration || 'empty' }}
+            </span>
           </td>
 
           <td class="select-td">
@@ -47,8 +47,8 @@
               </button>
             </form>
             <div class="buttons" ng-show="!rowform.$visible">
-              <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
-              <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Delete</button>
+              <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()" ng-disabled="true">Edit</button>
+              <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)" ng-disabled="true">Delete</button>
             </div>
           </td>
         </tr>

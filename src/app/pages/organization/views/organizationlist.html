@@ -1,15 +1,24 @@
+<style media="screen">
+  .my-tble-head{
+    font-weight: bold;
+  }
+</style>
 
-<table class="table">
+<div ba-panel ba-panel-title="Organization" ba-panel-class="with-scroll">
+
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Address</th>
-        <th>Contact</th>
+        <th class="my-tble-head">Sr No</th>
+        <th class="my-tble-head">Name</th>
+        <th class="my-tble-head">Description</th>
+        <th class="my-tble-head">Address</th>
+        <th class="my-tble-head">Contact</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="organization in organizationListVM.organizations">
+        <td>{{$index + 1}}</td>
         <td>{{organization.name}}</td>
         <td>{{organization.description}}</td>
         <td>{{organization.address}}</td>
@@ -17,3 +26,5 @@
       </tr>
     </tbody>
   </table>
+
+</div>

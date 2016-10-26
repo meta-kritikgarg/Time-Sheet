@@ -22,7 +22,6 @@
           templateUrl: 'app/pages/timesheet/views/timesheet.html',
           resolve: {
             TimeSheetData: function(TimeSheetService) {
-              console.info("Hello World");
               return TimeSheetService.getTimeSheet();
             }
           },

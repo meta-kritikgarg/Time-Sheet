@@ -1,13 +1,8 @@
-/**
- * @author v.lugovsky
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('BlurAdmin.pages.dashboard', ['dndLists','ngResource'])
       .config(routeConfig);
-      console.log("dashboard.js is loaded");
 
 
   /** @ngInject */
@@ -18,6 +13,11 @@
           templateUrl: 'app/pages/dashboard/dashboard.html',
           controller: function ($scope) {
             $scope.taskList = [];
+              $scope.currentSelectedDate = null;
+            $scope.display = function(value, currentSelectedDate){
+              $scope.taskList = value;
+                $scope.currentSelectedDate = currentSelectedDate;
+            }
           },
           authRequired: true,
           title: 'Dashboard',

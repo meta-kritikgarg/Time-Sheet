@@ -24,7 +24,7 @@ function AuthController($scope, $stateParams,$state,AuthService, StorageService,
     // console.log(token);
     //Todo : remove true
     $scope.isLoggedIn = StorageService.isUserLoggedIn();
-    if (token != null && token != undefined && token != '') {
+    if (token != null && token != undefined && token != '' && !$scope.isLoggedIn) {
 
       //console.log(isTokenValid(token));
       isTokenValid(token)
@@ -37,15 +37,15 @@ function AuthController($scope, $stateParams,$state,AuthService, StorageService,
     function isTokenValid(token) {
       AuthService.validateToken(token, function (resp){
         //console.log(resp);
-        console.log(angular.isDefined(resp.accessToken)+"fjhuh"+angular.isDefined(resp.name));
+        // console.log(angular.isDefined(resp.accessToken)+"fjhuh"+angular.isDefined(resp.name));
         // Validate Token
         // if successfull, go to dashboard
-        console.log("token"+ isTokenValid(token));
+        // console.log("token"+ isTokenValid(token));
         if(angular.isDefined(resp.name)&&angular.isDefined(resp.accessToken)){
           //save data in storage
           StorageService.setUserData(resp.name);
           StorageService.setToken(resp.accessToken);
-          StorageService.setToken(resp.accessToken);
+          StorageService.setProfileImageUrl(resp.profileImageUrl);
           //console.log("valid"+valid);
           console.log("going to dashboard, setting isLoggedIn true");
           $scope.isLoggedIn = true;

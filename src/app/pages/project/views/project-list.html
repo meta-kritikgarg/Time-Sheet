@@ -26,6 +26,16 @@
             {{ project.description || 'empty' }}
             </span>
           </td>
+          <td ng-hide="true">
+            <span editable-text="project.id" e-name="id" e-form="rowform" disabled>
+            {{ project.id || 'empty' }}
+            </span>
+          </td>
+          <td ng-hide="true">
+            <span editable-text="project.createdBy" e-name="createdBy" e-form="rowform" disabled>
+            {{ project.createdBy || 'empty' }}
+            </span>
+          </td>
           <td>
             <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
                   shown="ProjectVM.inserted == project">

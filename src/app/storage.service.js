@@ -12,6 +12,7 @@
     StorageService.getToken = getToken;
     StorageService.isUserLoggedIn = isUserLoggedIn;
     StorageService.clearAll = clearAll;
+    StorageService.setProfileImageUrl = setProfileImageUrl;
 
 
     function setToken(token) {
@@ -19,6 +20,10 @@
     }
     function setUserData(user_info) {
       localStorage.setItem("user_info", user_info);
+    }
+
+    function setProfileImageUrl(profileImageUrl) {
+      localStorage.setItem("profileImageUrl", profileImageUrl);
     }
 
 

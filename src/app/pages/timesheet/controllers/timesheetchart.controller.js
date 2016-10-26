@@ -7,13 +7,14 @@
   angular.module('BlurAdmin')
       .controller('TimeSheetController', TimeSheetController);
 
+  /** @ngInject */
   TimeSheetController.$inject = ['$scope', 'baConfig', '$element', 'layoutPaths', 'TimeSheetService']
 
-  /** @ngInject */
   function TimeSheetController($scope, baConfig, $element, layoutPaths, TimeSheetService) {
 
     // chartData = [];
     TimeSheetService.getTimeSheet(function (resp) {
+      if(resp !=null && resp != undefined )
       var weeklyHours = getWeeklyHours(resp);
       var chartData = [{
         week: 'Week 1',

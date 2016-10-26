@@ -11,12 +11,13 @@
         TaskListVM.saveTask = saveTask;
 
         var d = moment();
-        d.hours(0);d.minutes(0);
-        d.set({'hours':0, 'minutes':0, 'seconds':0, 'millisecond':0});
+        d.set({'hours':0, 'minutes':0, 'seconds':0});
 
-        TaskService.getTasks({date: d.valueOf()}, function(resp){
-          console.info(resp);
-          $scope.taskList = resp;
+        TaskService.getTasks({operation1: d.valueOf()}, function(resp){
+          for (var i = 0; i < resp.length; i++) {
+            $scope.taskList.push(resp[i]);
+            $scope.taskList[i].duration = $scope.taskList[i].taskDurationModel[0].duration;
+          }
         }, function(badResp) {
           console.info(badResp);
         });
@@ -32,10 +33,9 @@
       $scope.addTask = function() {
       $scope.inserted = {
           id: $scope.taskList.length+1,
-          name: '',
           description: '',
           subTask: null,
-          repeatFrequency: 0,
+          duration: 0,
           status : 0,
           priority: 2
         };
@@ -44,8 +44,9 @@
 
 
       function saveTask(task) {
+        task.date = $scope.currentSelectedDate.valueOf();
         console.info(task);
-        TaskService.addTodo({task});
+        TaskService.addTodo(task);
       }
 
       editableOptions.theme = 'bs3';

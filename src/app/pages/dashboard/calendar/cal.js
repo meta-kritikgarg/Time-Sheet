@@ -47,12 +47,23 @@ angular.module("BlurAdmin.pages.dashboard")
 
         $scope.dateClick = function(day) {
             var date = moment().set({'year': $scope.year, 'month': $scope.mon, 'date': day.date, 'hours':0, 'minutes':0, 'seconds':0, 'millisecond':0});
+            var currentSelectedDate = moment().set({year:$scope.year, month:$scope.mon,date:day.date, minute: 0, hour:0, second:1,millisecond:0});
             for (var i = 0; i < $scope.daysObjs.length; i++) {
                 $scope.daysObjs[i].isSelected = false;
             }
             day.isSelected = true;
-            $scope.taskList = TaskService.getTasks({date: date.valueOf()});
-            console.info($scope.taskList);
+            TaskService.getTasks({operation1: date.valueOf()}, function(resp) {
+              $scope.taskList = [];
+              for (var i = 0; i < resp.length; i++) {
+                $scope.taskList.push(resp[i]);
+                $scope.taskList[i].duration = $scope.taskList[i].taskDurationModel[0].duration;
+              }
+
+              $scope.display(angular.copy($scope.taskList), angular.copy(currentSelectedDate));
+            }, function(badResp){
+              console.info(badResp);
+            });
         }
+
 
     });
